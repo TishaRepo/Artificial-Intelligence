@@ -1,0 +1,33 @@
+Shitole Onkar Popat 2022MCS2060 
+Tisha Rajesh Madame 2022MCS2067
+
+The algorithm explores the nodes based on their cost given by cost function, choosing lowest cost node at every step.
+1. State space       :
+	Set of all possble strings which can be obtained from given string applying the corrections.
+2. Operater          :
+	One letter for any one word can be changed to get next state.
+3. Transition cost   :
+	It is constant in terms of processing the node but varies according to possible children of given node.
+4. Goal              :
+	The state with lowest cost.
+5. Branching factor  :
+	At each step the number of nodes added to frontier are equal to children or all possible next states from current node.
+
+Construction         :
+	Node are represented using Node class.
+	Each node has its position in sentense, its word value, and node id.
+	For each letter in node.word a list of possible corrections is maintained.
+	node.expand function creates all child nodes of given node.
+	
+Algorithm :
+	Initialize best state and best cost by source state.
+	For each word in source state create a node.
+	For each of these nodes add all of their children to the frontier with the cost of that child state.
+	Loop :
+	From frontier select node with least cost to explore and remove it from frontier.
+	Add node to explored.
+	If the cost of current state is less than best state, make this the best state.
+	Update modification to word list.
+	Calculate best cost and for all nodes in frontier recalculate their cost.
+	Expand and add all of the children of current node which are not yet explored to frontier.
+	while frontier is not empty repeat the loop.
